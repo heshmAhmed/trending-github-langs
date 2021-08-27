@@ -14,4 +14,5 @@ public class Repository {
     public String name;
     public String html_url;
     public String languages_url;
+    public String language;
 }

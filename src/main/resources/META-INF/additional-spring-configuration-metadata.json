@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "github.base.url",
+      "type": "java.lang.String",
+      "description": "Api endpoint url to get 100 trending repos in the last 30 days"
+  }
+] }
