@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
@@ -17,5 +18,10 @@ public class TGLResource {
     @GetMapping("/trending-repos")
     public Flux<Response> GetTrendingRepos(){
         return itglService.getTrendingRepos();
+    }
+
+    @GetMapping("/trending-repos/langs")
+    public Map GetTrendingLanguages(){
+        return itglService.getTrendingLanguages();
     }
 }

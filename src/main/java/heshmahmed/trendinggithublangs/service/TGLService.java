@@ -1,12 +1,14 @@
 package heshmahmed.trendinggithublangs.service;
 
 import heshmahmed.trendinggithublangs.connect.Connector;
+import heshmahmed.trendinggithublangs.model.Repository;
 import heshmahmed.trendinggithublangs.model.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -17,5 +19,15 @@ public class TGLService implements ITGLService{
     @Override
     public Flux<Response> getTrendingRepos() {
         return connector.callGithubApi(dateFormat);
+    }
+
+    @Override
+    public Map getTrendingLanguages() {
+        return Objects.requireNonNull(this.getTrendingRepos().blockFirst())
+                .items.stream().filter(repository -> repository.getLanguage() != null)
+                .collect(
+                       Collectors.groupingBy(Repository::getLanguage,Collectors.mapping(repository -> repository, Collectors.toList()))
+                );
+
     }
 }
