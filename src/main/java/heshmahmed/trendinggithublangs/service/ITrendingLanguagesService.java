@@ -6,7 +6,7 @@ import reactor.core.publisher.Flux;
 import java.util.Map;
 
 
-public interface ITGLService {
+public interface ITrendingLanguagesService {
     Flux<Response> getTrendingRepos();
     Map<String, Response> getTrendingLanguages();
 }

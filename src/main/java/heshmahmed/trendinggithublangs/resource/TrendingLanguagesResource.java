@@ -1,7 +1,7 @@
 package heshmahmed.trendinggithublangs.resource;
 
 import heshmahmed.trendinggithublangs.model.Response;
-import heshmahmed.trendinggithublangs.service.ITGLService;
+import heshmahmed.trendinggithublangs.service.ITrendingLanguagesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +14,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/")
-public class TGLResource {
-    private final ITGLService service;
+public class TrendingLanguagesResource {
+    private final ITrendingLanguagesService service;
 
     @GetMapping("/trending-repos")
     public ResponseEntity<Flux<Response>> GetTrendingRepos(){
@@ -26,7 +26,7 @@ public class TGLResource {
         }
     }
 
-    @GetMapping("/trending-repos/langs")
+    @GetMapping("/trending-repos/languages")
     public ResponseEntity<Map<String, Response>> GetTrendingLanguages(){
         try {
             return new ResponseEntity<>(service.getTrendingLanguages(), HttpStatus.ACCEPTED);
