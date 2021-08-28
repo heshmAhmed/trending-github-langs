@@ -8,5 +8,5 @@ import java.util.Map;
 
 public interface ITGLService {
     Flux<Response> getTrendingRepos();
-    Map getTrendingLanguages();
+    Map<String, Response> getTrendingLanguages();
 }
