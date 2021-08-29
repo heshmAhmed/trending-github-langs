@@ -84,13 +84,13 @@ If you want programing languages used in trending repos send request to `/api/v1
  Call `callGithubApi()` function to get flux of response
  
  ```
-    Map<String, Response> getTrendingLanguages();
+    Map<String, Response> getLanguages();
  ```
  Responsible for getting languages used in trending repos, so it first calls `getTrendingRepos()` function and then process
  the output and returns `Map<String, Response>` -> `Map<language_name, {count= number of repos, items = [repos]}`
  
  ```
-    Map<String, Response> prepTLResponse(@NonNull Response trendingRepos)();
+    Map<String, Response> buildLanguagesResponse(@NonNull Response trendingRepos)();
  ```
  Build and generate trending languages response as hashtable object
  
